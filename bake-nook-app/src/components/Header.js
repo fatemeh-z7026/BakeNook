@@ -3,6 +3,7 @@ import { styled, alpha } from "@mui/material/styles";
 import { AppBar, Box, Toolbar, InputBase } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { ReactComponent as Cake } from "../assets/cakeLogo.svg";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -12,10 +13,10 @@ const Search = styled("div")(({ theme }) => ({
     backgroundColor: alpha(theme.palette.common.white, 0.65),
   },
   marginLeft: 0,
-  width: "100%",
-  [theme.breakpoints.up("sm")]: {
+  width: "auto",
+  [theme.breakpoints.down("lg")]: {
     marginLeft: theme.spacing(1),
-    width: "auto",
+    width: "25%",
   },
 }));
 
@@ -57,41 +58,49 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function Header() {
   return (
     <div>
-     <Box sx={{ flexGrow: 1 }}>
-  <AppBar position="static" sx={{boxShadow: "none",}}>
-    <Toolbar
-      sx={{
-        backgroundColor: "customColors.headerColor",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center", 
-        padding: 0, 
-        
-      }}
-    >
-      <Search
-        sx={{
-          position: "absolute", // Make sure search input is positioned outside of centered content
-          left: "16px", // Adjust left position for search icon
-        }}
-      >
-        <SearchIconWrapper>
-          <SearchIcon sx={{ color: "secondary.main" }} />
-        </SearchIconWrapper>
-        <StyledInputBase
-          placeholder="Search…"
-          inputProps={{ "aria-label": "search" }}
-        />
-      </Search>
+      <Box sx={{ flexGrow: 1, backgroundColor:'customColors.headerColor' }}>
+        <AppBar position="static" sx={{ boxShadow: "none" }}>
+          <Toolbar
+            sx={{
+              display: "flex",
+              backgroundColor: "customColors.headerColor",
+              justifyContent: "center",
+              alignItems: "center",
+              padding: 0,
+            }}
+          >
+            <Search
+              sx={{
+                position: "absolute",
+                left: "16px",
+              }}
+            >
+              <SearchIconWrapper>
+                <SearchIcon sx={{ color: "secondary.main" }} />
+              </SearchIconWrapper>
+              <StyledInputBase
+                placeholder="Search…"
+                inputProps={{ "aria-label": "search" }}
+              />
+            </Search>
 
-      <Box sx={{ display: "flex", alignItems: "center" }}>
-        <Cake sx={{ marginRight: "8px" }} />
-        <LogoNote sx={{ fontSize: "1.5rem" }}>Bake Nooke</LogoNote>
+            <Box sx={{ display: "flex", alignItems: "center" }}>
+              <Cake sx={{ marginRight: "8px" }} />
+              <LogoNote sx={{ fontSize: "2rem" }}>Bake Nooke</LogoNote>
+            </Box>
+            <ShoppingCartIcon
+              sx={{
+                position: "absolute",
+                right: "16px",
+                color: "secondary.main",
+                marginRight: ".5rem",
+              }}
+            ></ShoppingCartIcon>
+          </Toolbar>
+        </AppBar>
+        <hr />
+        <div></div>
       </Box>
-    </Toolbar>
-  </AppBar>
-</Box>
-
     </div>
   );
 }

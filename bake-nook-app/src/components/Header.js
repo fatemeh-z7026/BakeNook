@@ -4,6 +4,14 @@ import { AppBar, Box, Toolbar, InputBase } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { ReactComponent as Cake } from "../assets/cakeLogo.svg";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import Typography from "@mui/material/Typography";
+import Menu from "@mui/material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
+import Container from "@mui/material/Container";
+import Button from "@mui/material/Button";
+import MenuItem from "@mui/material/MenuItem";
+import IconButton from "@mui/material/IconButton";
+
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -62,45 +70,56 @@ const SignUP = styled("span")(({ theme }) => ({
 }));
 
 export default function Header() {
-  return (
-    <Box sx={{ flexGrow: 1, backgroundColor: "customColors.headerColor" }}>
-      <AppBar position="static" sx={{ boxShadow: "none" }}>
-        <Toolbar
-          sx={{
-            display: "flex",
-            backgroundColor: "customColors.headerColor",
-            justifyContent: "space-between",
-            alignItems: "center",
-            padding: "0 16px",
-          }}
-        >
-          <Search
-            sx={{
-              display: "flex",
-              alignItems: "center",
-            }}
-          >
-            <SearchIconWrapper>
-              <SearchIcon sx={{ color: "secondary.main" }} />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ "aria-label": "search" }}
-            />
-          </Search>
+  const pages = [
+    "Home",
+    "Products",
+    "About Us",
+    "Contact Us",
+    
+  ];
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
 
-          {/*Logo*/}
-          <Box sx={{ display: "flex", alignItems: "center" }}>
-            <Cake sx={{ marginRight: "8px" }} />
-            <LogoNote sx={{ fontSize: "2rem" }}>Bake Nooke</LogoNote>
-          </Box>
-          <Box
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+
+  return (
+    <>
+      <Box sx={{ flexGrow: 1, backgroundColor: "customColors.headerColor" }}>
+        <AppBar position="static">
+          <Toolbar
             sx={{
               display: "flex",
+              backgroundColor: "customColors.headerColor",
+              justifyContent: "space-between",
               alignItems: "center",
-              gap: "8px",
+              padding: "0 16px",
             }}
           >
+            <Search
+              sx={{
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <SearchIconWrapper>
+                <SearchIcon sx={{ color: "secondary.main" }} />
+              </SearchIconWrapper>
+              <StyledInputBase
+                placeholder="Search…"
+                inputProps={{ "aria-label": "search" }}
+              />
+            </Search>
+
+            {/*Logo*/}
+            <Box sx={{ display: "flex", alignItems: "center" }}>
+              <Cake sx={{ marginRight: "8px" }} />
+              <LogoNote sx={{ fontSize: "2rem" }}>Bake Nooke</LogoNote>
+            </Box>
             <Box
               sx={{
                 display: "flex",
@@ -108,18 +127,127 @@ export default function Header() {
                 gap: "8px",
               }}
             >
-              <ShoppingCartIcon
+              <Box
                 sx={{
-                  color: "secondary.main",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
                 }}
-              />
-              <SignUP>Sign In | Sign Up</SignUP>
+              >
+                <ShoppingCartIcon
+                  sx={{
+                    color: "secondary.main",
+                  }}
+                />
+                <SignUP>Sign In | Sign Up</SignUP>
+              </Box>
             </Box>
-          </Box>
-        </Toolbar>
-      </AppBar>
-      <hr />
-      <div></div>
-    </Box>
+          </Toolbar>
+        </AppBar>
+
+        {/*Divider */}
+        <Box
+        sx={{
+          width: "96%", 
+          height: ".5px", 
+          backgroundColor: "customColors.textLight", 
+          margin: ".5rem auto", 
+        }}
+      />
+
+
+        {/* Menu*/}
+        <AppBar position="static">
+          <Container
+            maxWidth="xl"
+            sx={{ backgroundColor: "customColors.headerColor" }}
+          >
+            <Toolbar disableGutters>
+              <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+                <IconButton
+                  size="large"
+                  aria-label="account of current user"
+                  aria-controls="menu-appbar"
+                  aria-haspopup="true"
+                  onClick={handleOpenNavMenu}
+                  color="inherit"
+                >
+                  <MenuIcon sx={{ color: "secondary.main" }} />
+                </IconButton>
+                <Menu
+                  id="menu-appbar"
+                  anchorEl={anchorElNav}
+                  anchorOrigin={{
+                    vertical: "bottom",
+                    horizontal: "left",
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "left",
+                  }}
+                  PaperProps={{
+                    sx: {
+                      maxHeight: '60vh',
+                      overflowY: 'auto',
+                      '&::-webkit-scrollbar': {
+                        width: '8px',
+                      },
+                      '&::-webkit-scrollbar-thumb': {
+                        backgroundColor: 'customColors.paperLight',
+                        borderRadius: '4px',
+                      },
+                      '&::-webkit-scrollbar-thumb:hover': {
+                        backgroundColor: 'customColors.paperLight',
+                      },
+                    },
+                  }}
+                  open={Boolean(anchorElNav)}
+                  onClose={handleCloseNavMenu}
+                  sx={{ display: { xs: "block", md: "none" } }}
+                >
+                  {pages.map((page) => (
+                    <MenuItem key={page} onClick={handleCloseNavMenu}>
+                      <Typography
+                        sx={{ textAlign: "center", color: "text.primary" }}
+                      >
+                        {page}
+                      </Typography>
+                    </MenuItem>
+                  ))}
+                </Menu>
+              </Box>
+
+              <Box
+                sx={{
+                  flexGrow: 1,
+                  display: { xs: "none", md: "flex", justifyContent: "center" },
+                }}
+              >
+                {pages.map((page) => (
+                  <Button
+                    key={page}
+                    onClick={handleCloseNavMenu}
+                    sx={{ my: 2, display: "block", color: "text.primary", padding: "0 3rem" }}
+                  >
+                    {page}
+                  </Button>
+                ))}
+              </Box>
+            </Toolbar>
+          </Container>
+        </AppBar>
+            {/*Divider */}
+            <Box
+        sx={{
+          width: "96%", 
+          height: ".5px", 
+          backgroundColor: "customColors.textLight", 
+          margin: ".5rem auto", 
+        }}
+      />
+      </Box>
+      
+    </>
   );
 }

@@ -1,5 +1,4 @@
 import { createTheme } from "@mui/material/styles";
-import { light } from "@mui/material/styles/createPalette";
 
 const theme = createTheme({
   typography: {
@@ -38,8 +37,8 @@ const theme = createTheme({
       main: "#876952 ",
     },
     text: {
-      primary: "#333333",
-      secondary: "#555555",
+      primary: "#666666",
+      secondary: "#808080",
     },
     background: {
       default: "#fff",
@@ -51,6 +50,24 @@ const theme = createTheme({
       secondaryLight: "#ba9c85",
       secondaryDark: "#6f5644",
       headerColor: "#e6f3ff",
+      paperLight:'#b3daff',
+      textLight:'#d9d9d9'
+    },
+  },
+  components: {
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          boxShadow: "none",
+        },
+      },
+    },
+    MuiToolbar: {
+      styleOverrides: {
+        root: {
+          boxShadow: "none",
+        },
+      },
     },
   },
 });

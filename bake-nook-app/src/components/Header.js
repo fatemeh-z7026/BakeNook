@@ -55,52 +55,71 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
+const SignUP = styled("span")(({ theme }) => ({
+  color: theme.palette.text.secondary,
+  cursor: "pointer",
+  fontSize: "1.2rem",
+}));
+
 export default function Header() {
   return (
-    <div>
-      <Box sx={{ flexGrow: 1, backgroundColor:'customColors.headerColor' }}>
-        <AppBar position="static" sx={{ boxShadow: "none" }}>
-          <Toolbar
+    <Box sx={{ flexGrow: 1, backgroundColor: "customColors.headerColor" }}>
+      <AppBar position="static" sx={{ boxShadow: "none" }}>
+        <Toolbar
+          sx={{
+            display: "flex",
+            backgroundColor: "customColors.headerColor",
+            justifyContent: "space-between",
+            alignItems: "center",
+            padding: "0 16px",
+          }}
+        >
+          <Search
             sx={{
               display: "flex",
-              backgroundColor: "customColors.headerColor",
-              justifyContent: "center",
               alignItems: "center",
-              padding: 0,
             }}
           >
-            <Search
+            <SearchIconWrapper>
+              <SearchIcon sx={{ color: "secondary.main" }} />
+            </SearchIconWrapper>
+            <StyledInputBase
+              placeholder="Search…"
+              inputProps={{ "aria-label": "search" }}
+            />
+          </Search>
+
+          {/*Logo*/}
+          <Box sx={{ display: "flex", alignItems: "center" }}>
+            <Cake sx={{ marginRight: "8px" }} />
+            <LogoNote sx={{ fontSize: "2rem" }}>Bake Nooke</LogoNote>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+            }}
+          >
+            <Box
               sx={{
-                position: "absolute",
-                left: "16px",
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
               }}
             >
-              <SearchIconWrapper>
-                <SearchIcon sx={{ color: "secondary.main" }} />
-              </SearchIconWrapper>
-              <StyledInputBase
-                placeholder="Search…"
-                inputProps={{ "aria-label": "search" }}
+              <ShoppingCartIcon
+                sx={{
+                  color: "secondary.main",
+                }}
               />
-            </Search>
-
-            <Box sx={{ display: "flex", alignItems: "center" }}>
-              <Cake sx={{ marginRight: "8px" }} />
-              <LogoNote sx={{ fontSize: "2rem" }}>Bake Nooke</LogoNote>
+              <SignUP>Sign In | Sign Up</SignUP>
             </Box>
-            <ShoppingCartIcon
-              sx={{
-                position: "absolute",
-                right: "16px",
-                color: "secondary.main",
-                marginRight: ".5rem",
-              }}
-            ></ShoppingCartIcon>
-          </Toolbar>
-        </AppBar>
-        <hr />
-        <div></div>
-      </Box>
-    </div>
+          </Box>
+        </Toolbar>
+      </AppBar>
+      <hr />
+      <div></div>
+    </Box>
   );
 }

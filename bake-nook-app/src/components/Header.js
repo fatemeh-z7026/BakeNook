@@ -11,6 +11,9 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import IconButton from "@mui/material/IconButton";
+import {Link} from "react-router-dom";
+import routes from "../routes.js";
+
 
 
 const Search = styled("div")(({ theme }) => ({
@@ -70,13 +73,11 @@ const SignUP = styled("span")(({ theme }) => ({
 }));
 
 export default function Header() {
-  const pages = [
-    "Home",
-    "Products",
-    "About Us",
-    "Contact Us",
-    
-  ];
+ 
+  
+  
+
+  
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
@@ -90,6 +91,8 @@ export default function Header() {
   return (
     <>
       <Box sx={{ flexGrow: 1, backgroundColor: "customColors.headerColor" }}>
+
+        {/*App Bar Above */}
         <AppBar position="static">
           <Toolbar
             sx={{
@@ -156,7 +159,7 @@ export default function Header() {
       />
 
 
-        {/* Menu*/}
+        {/* App Bar Down*/}
         <AppBar position="static">
           <Container
             maxWidth="xl"
@@ -206,12 +209,14 @@ export default function Header() {
                   onClose={handleCloseNavMenu}
                   sx={{ display: { xs: "block", md: "none" } }}
                 >
-                  {pages.map((page) => (
-                    <MenuItem key={page} onClick={handleCloseNavMenu}>
+                  {routes.map((route) => (
+                    <MenuItem key={route.label} onClick={handleCloseNavMenu}>
                       <Typography
                         sx={{ textAlign: "center", color: "text.primary" }}
                       >
-                        {page}
+                      <Link to={route.path} style={{ textDecoration: 'none', color: 'inherit' }}>
+                        {route.label}
+                      </Link>
                       </Typography>
                     </MenuItem>
                   ))}
@@ -224,28 +229,23 @@ export default function Header() {
                   display: { xs: "none", md: "flex", justifyContent: "center" },
                 }}
               >
-                {pages.map((page) => (
+                {routes.map((route) => (
                   <Button
-                    key={page}
+                    key={route.label}
                     onClick={handleCloseNavMenu}
                     sx={{ my: 2, display: "block", color: "text.primary", padding: "0 3rem" }}
                   >
-                    {page}
+                     <Link to={route.path} style={{ textDecoration: 'none', color: 'inherit' }}>
+                    {route.label}
+                  </Link>
                   </Button>
                 ))}
               </Box>
             </Toolbar>
           </Container>
         </AppBar>
-            {/*Divider */}
-            <Box
-        sx={{
-          width: "96%", 
-          height: ".5px", 
-          backgroundColor: "customColors.textLight", 
-          margin: ".5rem auto", 
-        }}
-      />
+    
+    
       </Box>
       
     </>

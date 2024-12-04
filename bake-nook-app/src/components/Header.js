@@ -155,15 +155,7 @@ export default function Header() {
           </Toolbar>
         </AppBar>
 
-        {/*Divider */}
-        {/* <Box
-        sx={{
-          width: "96%", 
-          height: ".5px", 
-          backgroundColor: "customColors.textLight", 
-          margin: ".5rem auto", 
-        }}
-      /> */}
+       
 
         {/* App Bar Down*/}
         <AppBar

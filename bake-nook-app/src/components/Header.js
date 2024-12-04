@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import { AppBar, Box, Toolbar, InputBase } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
@@ -11,10 +11,8 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import IconButton from "@mui/material/IconButton";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import routes from "../routes.js";
-
-
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -73,11 +71,21 @@ const SignUP = styled("span")(({ theme }) => ({
 }));
 
 export default function Header() {
- 
-  
-  
+  const [sticky, setSticky] = useState(false);
 
-  
+  useEffect(() => {
+    const handleScroll = () => {
+      // Trigger stickiness based on scroll position
+      setSticky(window.scrollY > 0); // Adjust threshold as needed
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
@@ -91,7 +99,6 @@ export default function Header() {
   return (
     <>
       <Box sx={{ flexGrow: 1, backgroundColor: "customColors.headerColor" }}>
-
         {/*App Bar Above */}
         <AppBar position="static">
           <Toolbar
@@ -149,23 +156,39 @@ export default function Header() {
         </AppBar>
 
         {/*Divider */}
-        <Box
+        {/* <Box
         sx={{
           width: "96%", 
           height: ".5px", 
           backgroundColor: "customColors.textLight", 
           margin: ".5rem auto", 
         }}
-      />
-
+      /> */}
 
         {/* App Bar Down*/}
-        <AppBar position="static">
+        <AppBar
+          position="fixed"
+          sx={(theme) => ({
+            top: sticky ? "0px" : `${63 - window.scrollY}px`, // Adjust height for large screens
+            zIndex: theme.zIndex.appBar - 1,
+            backgroundColor: theme.palette.customColors.headerColor,
+            transition: "top 0.3s linear",
+            [theme.breakpoints.down("sm")]: {
+              top: sticky ? "0px" : `${45 - window.scrollY}px`, // Adjust height for small screens
+            },
+          })}
+        >
           <Container
             maxWidth="xl"
             sx={{ backgroundColor: "customColors.headerColor" }}
           >
-            <Toolbar disableGutters>
+            <Toolbar
+              disableGutters
+              sx={{
+                borderTop: sticky ? "none" : (theme) => `1px solid ${theme.palette.customColors.textLight}`,
+                transition: "border-top 0.3s ease-in-out", // Smooth transition for border
+              }}
+            >
               <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
                 <IconButton
                   size="large"
@@ -191,17 +214,17 @@ export default function Header() {
                   }}
                   PaperProps={{
                     sx: {
-                      maxHeight: '60vh',
-                      overflowY: 'auto',
-                      '&::-webkit-scrollbar': {
-                        width: '8px',
+                      maxHeight: "60vh",
+                      overflowY: "auto",
+                      "&::-webkit-scrollbar": {
+                        width: "8px",
                       },
-                      '&::-webkit-scrollbar-thumb': {
-                        backgroundColor: 'customColors.paperLight',
-                        borderRadius: '4px',
+                      "&::-webkit-scrollbar-thumb": {
+                        backgroundColor: "customColors.paperLight",
+                        borderRadius: "4px",
                       },
-                      '&::-webkit-scrollbar-thumb:hover': {
-                        backgroundColor: 'customColors.paperLight',
+                      "&::-webkit-scrollbar-thumb:hover": {
+                        backgroundColor: "customColors.paperLight",
                       },
                     },
                   }}
@@ -214,9 +237,12 @@ export default function Header() {
                       <Typography
                         sx={{ textAlign: "center", color: "text.primary" }}
                       >
-                      <Link to={route.path} style={{ textDecoration: 'none', color: 'inherit' }}>
-                        {route.label}
-                      </Link>
+                        <Link
+                          to={route.path}
+                          style={{ textDecoration: "none", color: "inherit" }}
+                        >
+                          {route.label}
+                        </Link>
                       </Typography>
                     </MenuItem>
                   ))}
@@ -233,21 +259,27 @@ export default function Header() {
                   <Button
                     key={route.label}
                     onClick={handleCloseNavMenu}
-                    sx={{ my: 2, display: "block", color: "text.primary", padding: "0 3rem" }}
+                    sx={{
+                      my: 2,
+                      display: "block",
+                      color: "text.primary",
+                      padding: "0 3rem",
+                      textTransform: "capitalize",
+                    }}
                   >
-                     <Link to={route.path} style={{ textDecoration: 'none', color: 'inherit' }}>
-                    {route.label}
-                  </Link>
+                    <Link
+                      to={route.path}
+                      style={{ textDecoration: "none", color: "inherit" }}
+                    >
+                      {route.label}
+                    </Link>
                   </Button>
                 ))}
               </Box>
             </Toolbar>
           </Container>
         </AppBar>
-    
-    
       </Box>
-      
     </>
   );
 }

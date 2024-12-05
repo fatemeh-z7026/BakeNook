@@ -76,11 +76,12 @@ export default function Header() {
   useEffect(() => {
     const handleScroll = () => {
       // Trigger stickiness based on scroll position
-      setSticky(window.scrollY > 0); // Adjust threshold as needed
+      setSticky(window.scrollY > 0);
     };
 
     window.addEventListener("scroll", handleScroll);
 
+    //Avoid memory leak
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -99,8 +100,8 @@ export default function Header() {
   return (
     <>
       <Box sx={{ flexGrow: 1, backgroundColor: "customColors.headerColor" }}>
-        {/*App Bar Above */}
-        <AppBar position="static">
+        {/* First App Bar  */}
+        <AppBar position="static" >
           <Toolbar
             sx={{
               display: "flex",
@@ -155,9 +156,7 @@ export default function Header() {
           </Toolbar>
         </AppBar>
 
-       
-
-        {/* App Bar Down*/}
+        {/*Second App Bar */}
         <AppBar
           position="fixed"
           sx={(theme) => ({
@@ -177,8 +176,11 @@ export default function Header() {
             <Toolbar
               disableGutters
               sx={{
-                borderTop: sticky ? "none" : (theme) => `1px solid ${theme.palette.customColors.textLight}`,
-                transition: "border-top 0.3s ease-in-out", // Smooth transition for border
+                borderTop: sticky
+                  ? "none"
+                  : (theme) =>
+                      `1px solid ${theme.palette.customColors.textLight}`,
+                transition: "border-top 0.3s ease-in-out",
               }}
             >
               <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>

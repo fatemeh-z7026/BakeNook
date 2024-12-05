@@ -51,6 +51,7 @@ const theme = createTheme({
       secondaryDark: "#6f5644",
       headerColor: "#e6f3ff",
       paperLight:'#b3daff',
+      paperLighter:'#cce6ff',
       textLight:'#d9d9d9'
     },
   },

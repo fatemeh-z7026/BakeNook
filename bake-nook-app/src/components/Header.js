@@ -45,7 +45,7 @@ const LogoNote = styled("span")(({ theme }) => ({
   letterSpacing: theme.spacing(0.25),
   marginTop: "1rem",
   marginLeft: "1rem",
-  fontFamily: ' "Birthstone", cursive;',
+  fontFamily: ' "Merienda", cursive;',
 }));
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: "inherit",

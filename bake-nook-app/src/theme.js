@@ -39,6 +39,7 @@ const theme = createTheme({
     text: {
       primary: "#666666",
       secondary: "#808080",
+      hover:"#404040"
     },
     background: {
       default: "#fff",

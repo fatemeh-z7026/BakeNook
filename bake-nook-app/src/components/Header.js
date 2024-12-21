@@ -259,6 +259,12 @@ export default function Header() {
                       color: "text.primary",
                       padding: "0 3rem",
                       textTransform: "capitalize",
+                      fontWeight: "500",
+                      "&:hover": {
+                        color: theme => theme.palette.text.hover, 
+                       
+
+                      }
                     }}
                   >
                     <Link

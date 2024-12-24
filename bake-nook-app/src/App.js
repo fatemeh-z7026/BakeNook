@@ -3,11 +3,12 @@ import { ThemeProvider, CssBaseline } from "@mui/material";
 import theme from "./theme";
 import { Routes, Route } from "react-router-dom";
 import routes from "./routes";
-
+import Header from "./components/Header";
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <Header/>
   
       <Routes>
         {routes.map(({ id,path, element }) => (

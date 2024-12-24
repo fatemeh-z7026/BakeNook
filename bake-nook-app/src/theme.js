@@ -69,6 +69,24 @@ const theme = createTheme({
         root: {
           boxShadow: "none",
         },
+        
+      },
+    },
+    MuiList: {
+      styleOverrides: {
+        root: {
+backgroundColor:'#b3daff'        },
+        
+      },
+    },
+    MuiPopover: {
+      styleOverrides: {
+        root: {
+          "@media (min-width: 960px)": {
+            marginTop: "1.8rem", // Desktop
+          },
+              },
+        
       },
     },
   },

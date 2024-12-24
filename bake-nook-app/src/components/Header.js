@@ -1,18 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { styled, alpha } from "@mui/material/styles";
-import { AppBar, Box, Toolbar, InputBase } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { ReactComponent as Cake } from "../assets/cakeLogo.svg";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
-import MenuItem from "@mui/material/MenuItem";
-import IconButton from "@mui/material/IconButton";
 import { Link } from "react-router-dom";
 import routes from "../routes.js";
+import {
+  AppBar,
+  Toolbar,
+  Button,
+  Menu,
+  MenuItem,
+  Box,
+  IconButton,
+  Typography,
+  Container,
+  InputBase,
+} from "@mui/material";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -72,7 +77,9 @@ const SignUP = styled("span")(({ theme }) => ({
 
 export default function Header() {
   const [sticky, setSticky] = useState(false);
-
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null); // Anchor element for menus
+  const [dropdownOpen, setDropdownOpen] = useState(null); // Open state for dropdown menus
   useEffect(() => {
     const handleScroll = () => {
       // Trigger stickiness based on scroll position
@@ -86,9 +93,8 @@ export default function Header() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-
+  
+{/* Mobile Menu */}
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -97,11 +103,21 @@ export default function Header() {
     setAnchorElNav(null);
   };
 
+{/* Desktop Menu */}
+  const handleMenuOpen = (event, routeId) => {
+    setAnchorEl(event.currentTarget);
+    setDropdownOpen(routeId);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+    setDropdownOpen(null);
+  };
   return (
     <>
       <Box sx={{ flexGrow: 1, backgroundColor: "customColors.headerColor" }}>
         {/* First App Bar  */}
-        <AppBar position="static" >
+        <AppBar position="static">
           <Toolbar
             sx={{
               display: "flex",
@@ -183,6 +199,7 @@ export default function Header() {
                 transition: "border-top 0.3s ease-in-out",
               }}
             >
+               {/* Mobile Menu */}
               <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
                 <IconButton
                   size="large"
@@ -209,7 +226,7 @@ export default function Header() {
                   PaperProps={{
                     sx: {
                       maxHeight: "60vh",
-                      overflowY: "auto",
+                      overflowY: "inherit",
                       "&::-webkit-scrollbar": {
                         width: "8px",
                       },
@@ -242,14 +259,55 @@ export default function Header() {
                   ))}
                 </Menu>
               </Box>
-
+ {/* Desktop Menu */}
               <Box
                 sx={{
                   flexGrow: 1,
                   display: { xs: "none", md: "flex", justifyContent: "center" },
                 }}
               >
-                {routes.map((route) => (
+                {routes.map((route) => route.children ?(<div key={route.id}>
+                <Button
+                  onClick={(event) => handleMenuOpen(event, route.id)}
+                  sx={{
+                    my: 2,
+                    display: "block",
+                    color: "text.primary",
+                    padding: "0 3rem",
+                    textTransform: "capitalize",
+                    fontWeight: "500",
+                    "&:hover": {
+                      color: (theme) => theme.palette.text.hover,
+                    },
+                  }}
+                >
+                  {route.label}
+                </Button>
+                <Menu
+                  anchorEl={anchorEl}
+                  open={dropdownOpen === route.id}
+                  onClose={handleMenuClose}
+                  PaperProps={{
+                    sx: {
+                      "& .MuiList-root": {
+                        width: "150px", // تغییر عرض لیست
+                      },
+                    },
+                  }}
+                >
+                  {route.children.map((child) => (
+                    <MenuItem
+                      key={child.id}
+                      onClick={handleMenuClose}
+                      component={Link}
+                      to={child.path}
+
+                    >
+                      {child.label}
+                    </MenuItem>
+                  ))}
+                </Menu>
+              </div>) :(
                   <Button
                     key={route.label}
                     onClick={handleCloseNavMenu}
@@ -261,10 +319,8 @@ export default function Header() {
                       textTransform: "capitalize",
                       fontWeight: "500",
                       "&:hover": {
-                        color: theme => theme.palette.text.hover, 
-                       
-
-                      }
+                        color: (theme) => theme.palette.text.hover,
+                      },
                     }}
                   >
                     <Link

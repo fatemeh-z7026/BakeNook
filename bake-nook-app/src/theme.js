@@ -39,7 +39,7 @@ const theme = createTheme({
     text: {
       primary: "#666666",
       secondary: "#808080",
-      hover:"#404040"
+      hover: "#404040",
     },
     background: {
       default: "#fff",
@@ -51,9 +51,9 @@ const theme = createTheme({
       secondaryLight: "#ba9c85",
       secondaryDark: "#6f5644",
       headerColor: "#e6f3ff",
-      paperLight:'#b3daff',
-      paperLighter:'#cce6ff',
-      textLight:'#d9d9d9'
+      paperLight: "#b3daff",
+      paperLighter: "#cce6ff",
+      textLight: "#d9d9d9",
     },
   },
   components: {
@@ -69,14 +69,13 @@ const theme = createTheme({
         root: {
           boxShadow: "none",
         },
-        
       },
     },
     MuiList: {
       styleOverrides: {
         root: {
-backgroundColor:'#b3daff'        },
-        
+          backgroundColor: "#b3daff",
+        },
       },
     },
     MuiPopover: {
@@ -84,9 +83,15 @@ backgroundColor:'#b3daff'        },
         root: {
           "@media (min-width: 960px)": {
             marginTop: "1.8rem", // Desktop
-          },
-              },
         
+          },
+        },
+      },
+    },
+    MuiBackdrop: {
+      styleOverrides: {
+        root: {
+        },
       },
     },
   },

@@ -2,7 +2,7 @@ import Home from "./pages/Home";
 import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
 import Products from "./pages/ProductsFolder/Products";
-import Shop from "./pages/Shop";
+// import Shop from "./pages/Shop";
 
 const routes = [
   { id: 1, label: "Home", path: "/", element: <Home /> },
@@ -16,7 +16,7 @@ const routes = [
       { id: 44, label: "Cookies", path: "/cookie" },
     ]
    },
-  { id: 5, label: "Shop", path: "/shop", element: <Shop /> },
+  // { id: 5, label: "Shop", path: "/shop", element: <Shop /> },
 ];
 
 export default routes;

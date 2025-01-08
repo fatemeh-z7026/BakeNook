@@ -1,9 +1,10 @@
-import "./App.css";  // این باید در ابتدای فایل باشد
-import { ThemeProvider, CssBaseline, Button } from "@mui/material";  // این هم باید در ابتدای فایل باشد
-import theme from "./theme";  // در ابتدای فایل
-import { Routes, Route } from "react-router-dom";  // در ابتدای فایل
-import routes from "./routes";  // در ابتدای فایل
-import Header from "./components/Header";  // در ابتدای فایل
+import "./App.css";  
+import { ThemeProvider, CssBaseline, Button } from "@mui/material"; 
+import theme from "./theme";  
+import { Routes, Route } from "react-router-dom"; 
+import routes from "./routes";  
+import Header from "./components/Header"; 
+
 
 function App() {
 

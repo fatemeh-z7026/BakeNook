@@ -2,7 +2,7 @@ import { ref, get } from "firebase/database";
 import { database } from "./firebase-config";
 
 const fetchProductData = async () => {
-  const productsRef = ref(database, "products/"); // مسیر دیتابیس
+  const productsRef = ref(database, "products/"); 
   try {
     const snapshot = await get(productsRef);
     if (snapshot.exists()) {

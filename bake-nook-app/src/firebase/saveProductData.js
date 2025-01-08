@@ -1,10 +1,10 @@
-// فایل saveProductData.js
-import { ref, set } from "firebase/database"; // باید در ابتدای فایل قرار بگیرد
-import { database } from "./firebase-config"; // باید در ابتدای فایل قرار بگیرد
-import productData from "../data/productData.json"; // داده‌های استاتیک باید در ابتدای فایل قرار بگیرد
+
+import { ref, set } from "firebase/database"; 
+import { database } from "./firebase-config"; 
+import productData from "../data/productData.json"; 
 
 const saveProductData = () => {
-  const productsRef = ref(database, "products/"); // محل ذخیره‌سازی در دیتابیس
+  const productsRef = ref(database, "products/"); 
   set(productsRef, productData)
     .then(() => console.log("Products saved successfully!"))
     .catch((error) => console.error("Error saving products:", error));

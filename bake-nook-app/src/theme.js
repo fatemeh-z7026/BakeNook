@@ -83,14 +83,15 @@ const theme = createTheme({
         root: {
           "@media (min-width: 960px)": {
             marginTop: "1.8rem", // Desktop
-        
           },
+          width: "150px",
         },
       },
     },
     MuiBackdrop: {
       styleOverrides: {
         root: {
+          width: "150px",
         },
       },
     },

@@ -8,15 +8,18 @@ const routes = [
   { id: 1, label: "Home", path: "/", element: <Home /> },
   { id: 2, label: "About Us", path: "/aboutus", element: <AboutUs /> },
   { id: 3, label: "Contact Us", path: "/contactus", element: <ContactUs /> },
-  { id: 4, label: "Products", path: "/products", element: <Products />,
-    children:[
+  {
+    id: 4,
+    label: "Products",
+    path: "/products",
+    element: <Products />,
+    children: [
       { id: 41, label: "Cake", path: "/cake" },
       { id: 42, label: "Bread", path: "/bread" },
       { id: 43, label: "Dessert", path: "/dessert" },
       { id: 44, label: "Cookies", path: "/cookie" },
-    ]
-   },
-  // { id: 5, label: "Shop", path: "/shop", element: <Shop /> },
+    ],
+  },
 ];
 
 export default routes;

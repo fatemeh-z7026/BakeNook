@@ -1,0 +1,172 @@
+{
+    "cakes": {
+      "chocolateCake": {
+        "name": "Chocolate Cake",
+        "ingredients": ["All-purpose flour: 2 cups",
+        "Sugar: 1.5 cups",
+        "Cocoa powder: 3/4 cup",
+       " Eggs: 3",
+        "Vegetable oil: 1 cup",
+        "Milk: 1 cup",
+        "Baking powder: 1 tablespoon"],
+        "instruction":"Preheat your oven to 180°C (350°F). In a mixing bowl, beat eggs, sugar, and vanilla extract until fluffy and doubled in volume. Gradually add the vegetable oil and milk, mixing well. Sift together the flour, baking powder, and cocoa powder, then gently fold them into the wet ingredients. Pour the batter into a greased and floured cake pan. Bake for 30–35 minutes or until a toothpick inserted in the center comes out clean. Let the cake cool before decorating with chocolate frosting or dusting with powdered sugar.",
+        "price": "15 USD",
+        "time":"8:00"
+      },
+      "vanillaCake": {
+        "name": "Vanilla Cake",
+        "ingredients": ["All-purpose flour: 2 cups",
+        "Sugar: 1.25 cups",
+        "Eggs: 4",
+        "Milk: 1/2 cup",
+        "Butter (melted): 1/2 cup",
+        "Baking powder: 1 tablespoon",
+        "Vanilla extract: 1 teaspoon"],
+"instruction":"Preheat your oven to 175°C (345°F). Beat eggs and sugar until light and creamy. Mix in melted butter, milk, and vanilla extract. Sift the flour and baking powder, then fold them into the wet mixture. Pour the batter into a greased cake pan and smooth the top. Bake for 25–30 minutes or until golden brown. Allow the cake to cool and serve plain or with whipped cream and fresh fruit.",
+        "price": "12 USD"
+      },
+      "carrotCake": {
+        "name": "Carrot Cake",
+        "ingredients": ["Grated carrots: 2 cups",
+        "All-purpose flour: 2 cups",
+        "Sugar: 1.5 cups",
+        "Eggs: 3",
+        "Vegetable oil: 1 cup",
+        "Baking powder: 1 tablespoon",
+        "Ground cinnamon: 1 teaspoon",
+        "Cream cheese: 1 cup (for frosting)",
+        "Powdered sugar: 1 cup (for frosting)",
+        "Butter: 1/2 cup (for frosting)"],
+"instruction":"Preheat your oven to 180°C (350°F). In a bowl, mix sugar and eggs until fluffy. Add oil and grated carrots, stirring well. Sift together flour, baking powder, and cinnamon, then fold them into the carrot mixture. Pour the batter into a greased cake pan and bake for 30–35 minutes. While the cake cools, prepare the frosting by beating cream cheese, butter, and powdered sugar until smooth. Spread the frosting over the cooled cake and enjoy!",
+        "price": "20 USD"
+      }
+    },
+    "desserts": {
+     "chocolateMousse": {
+    "name": "Chocolate Mousse",
+    "ingredients": [
+      "Dark chocolate (70% cocoa): 200 g (7 oz)",
+      "Heavy cream (cold): 1 cup (240 ml)",
+      "Egg whites: 3",
+      "Sugar: 2 tablespoons",
+      "Vanilla extract: 1 teaspoon (optional)"
+    ],
+    "instruction": "Melt the dark chocolate in a double boiler or microwave in 15-second intervals, stirring each time. Let it cool slightly. In a separate bowl, whip the heavy cream until soft peaks form, then refrigerate. Whisk egg whites until foamy, gradually add sugar, and whisk until stiff peaks form. Fold the whipped cream into the melted chocolate in two batches. Gently fold in the whipped egg whites in three parts. Spoon the mousse into serving glasses and refrigerate for 2–3 hours. Garnish with whipped cream or chocolate shavings before serving.",
+    "price": "12 USD"
+  },
+     "cheesecake": {
+    "name": "Classic Cheesecake",
+    "ingredients": [
+      "Cream cheese: 24 oz (680 g)",
+      "Sugar: 1 cup",
+      "Eggs: 3",
+      "Vanilla extract: 2 teaspoons",
+      "Sour cream: 1 cup",
+      "Graham cracker crumbs: 1.5 cups",
+      "Butter (melted): 1/3 cup",
+      "Sugar (for crust): 2 tablespoons"
+    ],
+    "instruction": "Preheat your oven to 160°C (325°F). Mix graham cracker crumbs, melted butter, and sugar for the crust. Press the mixture into the bottom of a springform pan and bake for 10 minutes, then cool. In a large bowl, beat cream cheese and sugar until smooth. Add eggs one at a time, mixing well after each. Stir in vanilla extract and sour cream. Pour the mixture over the crust. Bake for 50–60 minutes or until the center is slightly jiggly. Cool to room temperature, then refrigerate for at least 4 hours before serving.",
+    "price": "20 USD"
+  },
+      "tiramisuCheesecake": {
+    "name": "Tiramisu Cheesecake",
+    "ingredients": [
+      "Cream cheese: 16 oz (450 g)",
+      "Mascarpone cheese: 8 oz (225 g)",
+      "Ladyfinger biscuits: 20 pieces",
+      "Heavy cream: 1 cup",
+      "Sugar: 3/4 cup",
+      "Vanilla extract: 1 teaspoon",
+      "Espresso (cooled): 1 cup",
+      "Cocoa powder: for dusting"
+    ],
+    "instruction": "In a bowl, beat cream cheese, mascarpone, sugar, and vanilla extract until smooth. Whip the heavy cream until stiff peaks form, then fold it into the cheese mixture. Dip ladyfinger biscuits in espresso and layer them at the base of a springform pan. Spread half of the cheese mixture over the biscuits. Repeat the layers and smooth the top. Chill in the refrigerator for at least 4 hours. Dust with cocoa powder before serving.",
+    "price": "25 USD"
+  }
+    },
+    "breads": {
+        "sourdoughBread": {
+            "name": "Sourdough Bread",
+            "ingredients": [
+              "All-purpose flour: 3.5 cups",
+              "Sourdough starter: 1 cup",
+              "Water: 1.25 cups",
+              "Salt: 2 teaspoons"
+            ],
+            "instruction": "Mix sourdough starter, water, and flour until a sticky dough forms. Let it rest for 30 minutes. Add salt and knead for 8–10 minutes. Cover and let it rise until doubled (4–6 hours). Shape into a loaf, let it proof for 1–2 hours, and bake at 220°C (430°F) for 35–40 minutes.",
+            "price": "5 USD"
+          },
+          "brioche": {
+            "name": "Brioche",
+            "ingredients": [
+              "All-purpose flour: 3 cups",
+              "Eggs: 4",
+              "Butter (softened): 1 cup",
+              "Sugar: 1/4 cup",
+              "Milk: 1/4 cup",
+              "Yeast: 2 teaspoons",
+              "Salt: 1 teaspoon"
+            ],
+            "instruction": "Dissolve yeast in warm milk with sugar. Combine flour, eggs, and yeast mixture to form a dough. Gradually mix in butter and knead until smooth. Let rise for 2 hours. Shape into a loaf or rolls, proof for 1 hour, and bake at 180°C (350°F) for 30 minutes.",
+            "price": "8 USD"
+          },
+          "focaccia": {
+            "name": "Focaccia",
+            "ingredients": [
+              "All-purpose flour: 4 cups",
+              "Water: 1.5 cups",
+              "Olive oil: 1/4 cup",
+              "Yeast: 2 teaspoons",
+              "Salt: 1.5 teaspoons",
+              "Rosemary and sea salt: for topping"
+            ],
+            "instruction": "Mix water, yeast, and flour into a sticky dough. Add salt and olive oil, knead lightly, and let it rise for 1–2 hours. Spread the dough into a baking tray, drizzle with olive oil, and sprinkle with rosemary and sea salt. Bake at 200°C (390°F) for 25–30 minutes.",
+            "price": "7 USD"
+          }
+    },
+    "cookies": {
+        "chocolateChipCookies": {
+            "name": "Chocolate Chip Cookies",
+            "ingredients": [
+              "All-purpose flour: 2.25 cups",
+              "Butter: 1 cup",
+              "Sugar: 1 cup",
+              "Brown sugar: 1/2 cup",
+              "Eggs: 2",
+              "Vanilla extract: 1 teaspoon",
+              "Baking soda: 1 teaspoon",
+              "Chocolate chips: 2 cups"
+            ],
+            "instruction": "Cream butter, sugar, and brown sugar until fluffy. Add eggs and vanilla extract, mix well. Stir in flour and baking soda, then fold in chocolate chips. Drop spoonfuls onto a baking sheet and bake at 175°C (350°F) for 10–12 minutes.",
+            "price": "10 USD"
+          },
+          "oatmealRaisinCookies": {
+            "name": "Oatmeal Raisin Cookies",
+            "ingredients": [
+              "All-purpose flour: 1.5 cups",
+              "Rolled oats: 2 cups",
+              "Butter: 1 cup",
+              "Brown sugar: 1 cup",
+              "Eggs: 2",
+              "Raisins: 1 cup",
+              "Cinnamon: 1 teaspoon",
+              "Baking soda: 1 teaspoon"
+            ],
+            "instruction": "Beat butter and brown sugar until creamy. Add eggs and mix. Combine flour, baking soda, and cinnamon, then mix into the wet ingredients. Stir in oats and raisins. Drop onto a baking sheet and bake at 180°C (350°F) for 10–12 minutes.",
+            "price": "9 USD"
+          },
+          "butterCookies": {
+            "name": "Butter Cookies",
+            "ingredients": [
+              "All-purpose flour: 2 cups",
+              "Butter: 1 cup",
+              "Powdered sugar: 1/2 cup",
+              "Vanilla extract: 1 teaspoon"
+            ],
+            "instruction": "Beat butter and powdered sugar until fluffy. Add vanilla extract, then mix in flour to form a dough. Shape into small balls, flatten slightly, and place on a baking sheet. Bake at 175°C (350°F) for 12–15 minutes.",
+            "price": "8 USD"
+          }
+    }
+  }
+  

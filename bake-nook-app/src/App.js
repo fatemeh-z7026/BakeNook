@@ -1,17 +1,20 @@
-import "./App.css";
-import { ThemeProvider, CssBaseline } from "@mui/material";
-import theme from "./theme";
-import { Routes, Route } from "react-router-dom";
-import routes from "./routes";
-import Header from "./components/Header";
+import "./App.css";  // این باید در ابتدای فایل باشد
+import { ThemeProvider, CssBaseline, Button } from "@mui/material";  // این هم باید در ابتدای فایل باشد
+import theme from "./theme";  // در ابتدای فایل
+import { Routes, Route } from "react-router-dom";  // در ابتدای فایل
+import routes from "./routes";  // در ابتدای فایل
+import Header from "./components/Header";  // در ابتدای فایل
+
 function App() {
+
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Header/>
-  
+      <Header />
+
       <Routes>
-        {routes.map(({ id,path, element }) => (
+        {routes.map(({ id, path, element }) => (
           <Route key={id} path={path} element={element} />
         ))}
       </Routes>

@@ -93,7 +93,6 @@ export default function Header() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -102,7 +101,6 @@ export default function Header() {
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-
 
   const handleMenuOpen = (event, routeId) => {
     setAnchorEl(event.currentTarget);
@@ -199,7 +197,7 @@ export default function Header() {
                 transition: "border-top 0.3s ease-in-out",
               }}
             >
-               {/* Mobile Menu */}
+              {/* Mobile Menu */}
               <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
                 <IconButton
                   size="large"
@@ -259,92 +257,94 @@ export default function Header() {
                   ))}
                 </Menu>
               </Box>
- {/* Desktop Menu */}
- <Box
-  sx={{
-    flexGrow: 1,
-    display: { xs: "none", md: "flex", justifyContent: "center" },
-  }}
->
-  {routes.map((route) =>
-    route.children ? (
-      <div key={route.id}>
-        <Button
-          onMouseEnter={(event) => handleMenuOpen(event, route.id)}
-          sx={{
-            my: 2,
-            display: "block",
-            color: "text.primary",
-            padding: "0 3rem",
-            textTransform: "capitalize",
-            fontWeight: "500",
-            "&:hover": {
-              color: (theme) => theme.palette.text.hover,
-            },
-          }}
-        >
-          <Link
-            to={route.path}
-            style={{ textDecoration: "none", color: "inherit" }}
-          >
-            {route.label}
-          </Link>
-        </Button>
-        <Menu
-          anchorEl={anchorEl}
-          open={dropdownOpen === route.id}
-          onClose={handleMenuClose}
-          MenuListProps={{
-            onMouseLeave: handleMenuClose, // بسته شدن منو هنگام خروج از محدوده
-          }}
-          PaperProps={{
-            sx: {
-              "& .MuiList-root": {
-                width: "150px",
-              },
-            },
-          }}
-        >
-          {route.children.map((child) => (
-            <MenuItem
-              key={child.id}
-              onClick={handleMenuClose}
-              component={Link}
-              to={child.path}
-            >
-              {child.label}
-            </MenuItem>
-          ))}
-        </Menu>
-      </div>
-    ) : (
-      <Button
-        key={route.label}
-        onClick={handleCloseNavMenu}
-        sx={{
-          my: 2,
-          display: "block",
-          color: "text.primary",
-          padding: "0 3rem",
-          textTransform: "capitalize",
-          fontWeight: "500",
-          "&:hover": {
-            color: (theme) => theme.palette.text.hover,
-          },
-        }}
-      >
-        <Link
-          to={route.path}
-          style={{ textDecoration: "none", color: "inherit" }}
-        >
-          {route.label}
-        </Link>
-      </Button>
-    )
-  )}
-</Box>
+              {/* Desktop Menu */}
+              <Box
+                sx={{
+                  flexGrow: 1,
+                  display: { xs: "none", md: "flex", justifyContent: "center" },
+                }}
+              >
+                {routes.map((route) =>
+                  route.children ? (
+                    <div key={route.id}>
+                      <Button
+                        onMouseEnter={(event) =>
+                          handleMenuOpen(event, route.id)
+                        }
+                        onClick={handleMenuClose}
 
-
+                        sx={{
+                          my: 2,
+                          display: "block",
+                          color: "text.primary",
+                          padding: "0 3rem",
+                          textTransform: "capitalize",
+                          fontWeight: "500",
+                          "&:hover": {
+                            color: (theme) => theme.palette.text.hover,
+                          },
+                        }}
+                      >
+                        <Link
+                          to={route.path}
+                          style={{ textDecoration: "none", color: "inherit" }}
+                        >
+                          {route.label}
+                        </Link>
+                      </Button>
+                      <Menu
+                        anchorEl={anchorEl}
+                        open={dropdownOpen === route.id}
+                        onClose={handleMenuClose}
+                        MenuListProps={{
+                          onMouseLeave: handleMenuClose,
+                        }}
+                        PaperProps={{
+                          sx: {
+                            "& .MuiList-root": {
+                              width: "150px",
+                            },
+                          },
+                        }}
+                      >
+                        {route.children.map((child) => (
+                          <MenuItem
+                            key={child.id}
+                            onClick={handleMenuClose}
+                            component={Link}
+                            to={child.path}
+                          >
+                            {child.label}
+                          </MenuItem>
+                        ))}
+                      </Menu>
+                    </div>
+                  ) : (
+                    <Button
+                      key={route.label}
+                      onClick={handleCloseNavMenu}
+                      sx={{
+                        my: 2,
+                        display: "block",
+                        color: "text.primary",
+                        padding: "0 3rem",
+                        textTransform: "capitalize",
+                        fontWeight: "500",
+                        "&:hover": {
+                          color: (theme) => theme.palette.text.hover,
+                        },
+                      }}
+                    >
+                      <Link
+                        to={route.path}
+                        style={{ textDecoration: "none", color: "inherit" }}
+                      >
+                        {route.label}
+                      </Link>
+                    </Button>
+                  )
+                )}
+              </Box>
             </Toolbar>
           </Container>
         </AppBar>

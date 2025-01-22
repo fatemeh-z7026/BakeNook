@@ -2,6 +2,7 @@ import Home from "./pages/Home";
 import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
 import Products from "./pages/ProductsFolder/Products";
+import Desserts from "./pages/ProductsFolder/Desserts";
 // import Shop from "./pages/Shop";
 
 const routes = [
@@ -16,7 +17,7 @@ const routes = [
     children: [
       { id: 41, label: "Cake", path: "/cake" },
       { id: 42, label: "Bread", path: "/bread" },
-      { id: 43, label: "Dessert", path: "/dessert" },
+      { id: 43, label: "Dessert", path: "/dessert" , element:<Desserts/>},
       { id: 44, label: "Cookies", path: "/cookie" },
     ],
   },

@@ -54,6 +54,8 @@ const theme = createTheme({
       paperLight: "#b3daff",
       paperLighter: "#cce6ff",
       textLight: "#d9d9d9",
+      cardBackground:"#f1ecda"
+
     },
   },
   components: {

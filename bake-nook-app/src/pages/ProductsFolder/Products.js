@@ -1,41 +1,39 @@
-import React, { useEffect, useState } from "react";
-import { fetchProductData } from "../../firebase/firebase-product";
+import React from "react";
+import ProductCard from "../../components/ProductCard";
+import mainProductData from "../../data/mainProductDataFile.json";
+import Grid from "@mui/material/Grid2";
+import Box from "@mui/material/Box";
 
+const ProductCardData = mainProductData.mainProductData;
 export default function Products() {
-  const [products, setProducts] = useState(null);
-
-  useEffect(() => {
-    const loadProducts = async () => {
-      const data = await fetchProductData();
-      setProducts(data);
-    };
-    loadProducts();
-  }, []);
-
-  if (!products) {
-    return <p>Loading products...</p>;
-  }
-
   return (
-    <div>
-      <h1>Products</h1>
-      {Object.keys(products).map((category) => (
-        <div key={category}>
-          <h2>{category}</h2>
-          {Object.keys(products[category]).map((productKey) => {
-            const product = products[category][productKey];
-            return (
-              <div key={productKey}>
-                <h3>{product.name}</h3>
-                <h3>{product.time}</h3>
-                <p>Ingredients: {product.ingredients.join(", ")}</p>
-                <p>Price: {product.price}</p>
-                <p>Instruction: {product.instruction}</p>
-              </div>
-            );
-          })}
-        </div>
-      ))}
-    </div>
+    <Box
+      sx={{
+        height: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <Grid
+        container
+        spacing={{ xs: 2, md: 3 }}
+        columns={{ xs: 4, sm: 8, md: 12 }}
+      >
+        {ProductCardData.map((product) => (
+          <Grid item xs={12} sm={6} md={4} lg={3}
+          sx={{width:'250px'}}
+>
+            <ProductCard
+              key={product.id}
+              name={product.name}
+              img={product.img}
+              description={product.description}
+
+            />
+          </Grid>
+        ))}
+      </Grid>
+    </Box>
   );
 }

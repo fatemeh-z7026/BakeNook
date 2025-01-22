@@ -10,8 +10,8 @@
         "Milk: 1 cup",
         "Baking powder: 1 tablespoon"],
         "instruction":"Preheat your oven to 180°C (350°F). In a mixing bowl, beat eggs, sugar, and vanilla extract until fluffy and doubled in volume. Gradually add the vegetable oil and milk, mixing well. Sift together the flour, baking powder, and cocoa powder, then gently fold them into the wet ingredients. Pour the batter into a greased and floured cake pan. Bake for 30–35 minutes or until a toothpick inserted in the center comes out clean. Let the cake cool before decorating with chocolate frosting or dusting with powdered sugar.",
-        "price": "15 USD",
-        "time":"8:00"
+        "price": "15 USD"
+        
       },
       "vanillaCake": {
         "name": "Vanilla Cake",

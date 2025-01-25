@@ -15,10 +15,10 @@ const routes = [
     path: "/products",
     element: <Products />,
     children: [
-      { id: 41, label: "Cake", path: "/cake" },
-      { id: 42, label: "Bread", path: "/bread" },
-      { id: 43, label: "Dessert", path: "/dessert" , element:<Desserts/>},
-      { id: 44, label: "Cookies", path: "/cookie" },
+      { id: 41, label: "Cake", path: "/products/cake" },
+      { id: 42, label: "Bread", path: "/products/bread" },
+      { id: 43, label: "Dessert", path: "/products/dessert", element: <Desserts /> },
+      { id: 44, label: "Cookies", path: "/products/cookie" },
     ],
   },
 ];

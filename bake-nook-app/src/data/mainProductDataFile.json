@@ -15,12 +15,12 @@
       {"id":"3",
         "name": "Dessert",
         "img":"/mainProductImg/dessert (5).jpg",
-"description":"Discover delicious Dessert recipes"      
+"description":"Discover delicious Dessert recipes"  
       
       },
       {
         "id":"4",
-        "name": "Cookie",
+        "name": "Cookies",
         "img":"/mainProductImg/cookie (1).jpg",
 "description":"Discover delicious Cookie recipes"      
       }

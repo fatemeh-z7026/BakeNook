@@ -6,7 +6,7 @@ const ProductDetails = () => {
 
   return (
     <div>
-      <h1>{category} Details</h1>
+      <h1>{category.charAt(0).toUpperCase() + category.slice(1)} Details</h1>
       <p>Showing details for {category} products.</p>
     </div>
   );

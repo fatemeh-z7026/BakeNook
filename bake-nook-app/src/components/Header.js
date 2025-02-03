@@ -291,21 +291,24 @@ export default function Header() {
                         </Link>
                       </Button>
                       <Menu
+                        onMouseLeave={handleMenuClose}
                         anchorEl={anchorEl}
                         open={dropdownOpen === route.id}
                         onClose={handleMenuClose}
                       >
-                         {route.children.map((child) => (
-                        <MenuItem
-                          key={child.id}
-                          onClick={() => {
-                            navigate(`/products/${child.label.toLowerCase()}`);
-                            handleMenuClose();
-                          }}
-                        >
-                          {child.label}
-                        </MenuItem>
-                      ))}
+                        {route.children.map((child) => (
+                          <MenuItem
+                            key={child.id}
+                            onClick={() => {
+                              navigate(
+                                `/products/${child.label.toLowerCase()}`
+                              );
+                              handleMenuClose();
+                            }}
+                          >
+                            {child.label}
+                          </MenuItem>
+                        ))}
                       </Menu>
                     </div>
                   ) : (

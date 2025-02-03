@@ -1,23 +1,24 @@
 import React from "react";
 import ProductCard from "../../components/ProductCard";
-import mainProductData from "../../data/mainProductDataFile.json";
+import mainProductData from "../../data/productDatas.json";
 import Grid from "@mui/material/Grid2";
 import Box from "@mui/material/Box";
+import { Link } from "react-router-dom"; // Import Link
 import { Outlet } from "react-router-dom";
 
 const ProductCardData = mainProductData.mainProductData;
-export default function Products() {
 
+export default function Products() {
 
   return (
     <Box
       sx={{
-        minHeight: "100vh", // تغییر از height به minHeight
+        minHeight: "100vh",
         display: "flex",
-        flexDirection: "column", // برای ساختار عمودی
+        flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        padding: 2, // اضافه کردن فاصله داخلی
+        padding: 2,
       }}
     >
       <Grid
@@ -27,7 +28,7 @@ export default function Products() {
       >
         {ProductCardData.map((product) => (
           <Grid
-            key={product.id} // اضافه کردن key به Grid
+            key={product.id}
             item
             xs={12}
             sm={6}
@@ -35,19 +36,18 @@ export default function Products() {
             lg={3}
             sx={{ width: "250px" }}
           >
-            <ProductCard
-              name={product.name}
-              img={product.img}
-              description={product.description}
-            />
+<Link className="product-card-link" to={product.path}>
+              <ProductCard
+                name={product.label}
+                img={product.img}
+                description={product.description}
+              />
+            </Link>
           </Grid>
         ))}
       </Grid>
-
-      {/* مسیرهای فرزند */}
-      <Box sx={{ width: "100%", marginTop: 4}}>
-        <Outlet />
-      </Box>
+    <Outlet></Outlet>
+      
     </Box>
   );
 }

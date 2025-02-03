@@ -4,7 +4,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { ReactComponent as Cake } from "../assets/cakeLogo.svg";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import routes from "../routes.js";
 import {
   AppBar,
@@ -80,6 +80,8 @@ export default function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorEl, setAnchorEl] = useState(null); // Anchor element for menus
   const [dropdownOpen, setDropdownOpen] = useState(null); // Open state for dropdown menus
+  const navigate = useNavigate();
+
   useEffect(() => {
     const handleScroll = () => {
       // Trigger stickiness based on scroll position
@@ -272,7 +274,6 @@ export default function Header() {
                           handleMenuOpen(event, route.id)
                         }
                         onClick={handleMenuClose}
-
                         sx={{
                           my: 2,
                           display: "block",
@@ -280,9 +281,6 @@ export default function Header() {
                           padding: "0 3rem",
                           textTransform: "capitalize",
                           fontWeight: "500",
-                          "&:hover": {
-                            color: (theme) => theme.palette.text.hover,
-                          },
                         }}
                       >
                         <Link
@@ -296,27 +294,18 @@ export default function Header() {
                         anchorEl={anchorEl}
                         open={dropdownOpen === route.id}
                         onClose={handleMenuClose}
-                        MenuListProps={{
-                          onMouseLeave: handleMenuClose,
-                        }}
-                        PaperProps={{
-                          sx: {
-                            "& .MuiList-root": {
-                              width: "150px",
-                            },
-                          },
-                        }}
                       >
-                        {route.children.map((child) => (
-                          <MenuItem
-                            key={child.id}
-                            onClick={handleMenuClose}
-                            component={Link}
-                            to={child.path}
-                          >
-                            {child.label}
-                          </MenuItem>
-                        ))}
+                         {route.children.map((child) => (
+                        <MenuItem
+                          key={child.id}
+                          onClick={() => {
+                            navigate(`/products/${child.label.toLowerCase()}`);
+                            handleMenuClose();
+                          }}
+                        >
+                          {child.label}
+                        </MenuItem>
+                      ))}
                       </Menu>
                     </div>
                   ) : (
@@ -330,9 +319,6 @@ export default function Header() {
                         padding: "0 3rem",
                         textTransform: "capitalize",
                         fontWeight: "500",
-                        "&:hover": {
-                          color: (theme) => theme.palette.text.hover,
-                        },
                       }}
                     >
                       <Link

@@ -6,19 +6,16 @@ import CardHeader from "@mui/material/CardHeader";
 import Typography from "@mui/material/Typography";
 import CardActionArea from "@mui/material/CardActionArea";
 import "../styles/ProductCard.css";
-import { Link } from "react-router-dom";
-import routes from "../routes";
+
 
 
 export default function ActionAreaCard({ id ,name, img, description }) {
-  const productRoute = routes
-    .find((route) => route.label === "Products")
-    ?.children?.find((child) => child.label === name)?.path;
 
-    
+
 
   return (
-    <Link to={productRoute || "#"} className="product-card-link"> <Card
+   
+    <Card
     className="product-card"
     sx={{ backgroundColor: "customColors.cardBackground" }}
  >
@@ -40,7 +37,7 @@ export default function ActionAreaCard({ id ,name, img, description }) {
         </Typography>
       </CardContent>
     </CardActionArea>
-  </Card></Link>
+  </Card>
    
   );
 }

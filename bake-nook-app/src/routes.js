@@ -65,6 +65,7 @@ const routes = [
         path: "/products/:category",
         element: <ProductDetails />,
       },
+    
     ],
   },
 ];

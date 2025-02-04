@@ -7,37 +7,34 @@ import Typography from "@mui/material/Typography";
 import CardActionArea from "@mui/material/CardActionArea";
 import "../styles/ProductCard.css";
 
-
-
-export default function ActionAreaCard({ id ,name, img, description }) {
-
-
-
+export default function ActionAreaCard({
+  id,
+  name,
+  img,
+  description,
+  isInactive,
+}) {
   return (
-   
-    <Card
-    className="product-card"
-    sx={{ backgroundColor: "customColors.cardBackground" }}
- >
-
-    <CardActionArea>
-      <CardHeader />
-      <CardMedia component="img" height="100" image={img} alt={name} />
-      <CardContent>
-        <Typography
-          gutterBottom
-          variant="h5"
-          component="div"
-          sx={{ color: "text.primary" }}
-        >
-          {name}
-        </Typography>
-        <Typography variant="body2" sx={{ color: "text.secondary" }}>
-          {description}
-        </Typography>
-      </CardContent>
-    </CardActionArea>
-  </Card>
-   
+    <div className={`product-card ${isInactive ? "inactiveStyle" : ""}`}>
+      {" "}
+      <Card sx={{ backgroundColor: "customColors.cardBackground" }}>
+        <CardActionArea>
+          <CardMedia component="img" height="150" image={img} alt={name} />
+          <CardContent>
+            <Typography
+              gutterBottom
+              variant="h5"
+              component="div"
+              sx={{ color: "text.primary" }}
+            >
+              {name}
+            </Typography>
+            <Typography variant="body2" sx={{ color: "text.secondary" }}>
+              {description}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+      </Card>
+    </div>
   );
 }

@@ -266,7 +266,7 @@ export default function Header() {
                   display: { xs: "none", md: "flex", justifyContent: "center" },
                 }}
               >
-                {routes.map((route) =>
+                {/* {routes.map((route) =>
                   route.children ? (
                     <div key={route.id}>
                       <Button
@@ -312,6 +312,29 @@ export default function Header() {
                       </Menu>
                     </div>
                   ) : (
+                    <Button
+                      key={route.label}
+                      onClick={handleCloseNavMenu}
+                      sx={{
+                        my: 2,
+                        display: "block",
+                        color: "text.primary",
+                        padding: "0 3rem",
+                        textTransform: "capitalize",
+                        fontWeight: "500",
+                      }}
+                    >
+                      <Link
+                        to={route.path}
+                        style={{ textDecoration: "none", color: "inherit" }}
+                      >
+                        {route.label}
+                      </Link>
+                    </Button>
+                  )
+                )} */}
+                  {routes.map((route) =>
+                   (
                     <Button
                       key={route.label}
                       onClick={handleCloseNavMenu}

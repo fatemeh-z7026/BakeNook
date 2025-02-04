@@ -1,11 +1,16 @@
 .product-card {
-  transition: transform 0.3s ease-in-out;
+  transition: transform .4s ease-in-out,;
+  border:solid 2px transparent
 }
 
 .product-card:hover {
-  transform: scale(1.03);
+  transform: scale(1.03); /* This will be transitioned smoothly */
 }
 
-.product-card-link{
+.inactiveStyle {
+  transform: scale(0.8); /* This will transition smoothly */
+}
+
+.product-card-link {
   text-decoration: none;
 }
